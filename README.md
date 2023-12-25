@@ -5,7 +5,9 @@ Create voice commands to open applications (currently working on)
 
 
 ## Todo:
-1. Make more tailored custom commands (not only opening applications)
-2. Ability to have application running in the background
-3. Summon voice capture for commands on shortcut
+1. Better state management
+2. Better solution to save custom commands to AppData
+3. Make more tailored custom commands (not only opening applications)
+4. Ability to have application running in the background
+5. Summon voice capture for commands on shortcut
 
