@@ -23,11 +23,52 @@
                 Text=""
                 Style="{StaticResource SubHeadline}"
                 SemanticProperties.HeadingLevel="Level1" />
-            
-            <Entry
-                x:Name="CommandEntry"
-                Placeholder="Enter command"
-                HorizontalOptions="Fill" />
+            <VerticalStackLayout
+                VerticalOptions="Start"
+                Spacing="5">
+                <Label
+                        Text="Commands"
+                        Style="{StaticResource SubHeadline}"
+                        SemanticProperties.HeadingLevel="Level1" />
+                <HorizontalStackLayout
+                    Spacing="15">
+                    <Entry x:Name="commandStringEntry" Placeholder="Enter command string" VerticalOptions="Start" WidthRequest="500"/>
+                    <Button Text="Select App" Clicked="OnSelectAppClicked"/>
+                    <Button Text="Save Command" 
+                        Clicked="OnSaveCommandClicked" 
+                        VerticalOptions="Start" 
+                        HeightRequest="30" 
+                        WidthRequest="200"
+                />
+                </HorizontalStackLayout>
+                <ScrollView>
+                    <StackLayout VerticalOptions="CenterAndExpand">
+                        <!-- Table Header -->
+                        <StackLayout Orientation="Horizontal" Padding="10">
+                            <Label Text="Command" WidthRequest="200" />
+                            <Label Text="Application Path" WidthRequest="400" />
+                            <!-- Add other headers as needed -->
+                        </StackLayout>
+
+                        <!-- CollectionView for Data Rows -->
+                        <CollectionView x:Name="commandsListView">
+                            <CollectionView.ItemTemplate>
+                                <DataTemplate>
+                                    <StackLayout Orientation="Horizontal" Padding="10">
+                                        <Label Text="{Binding Command}" WidthRequest="200" />
+                                        <Label Text="{Binding ApplicationPath}" WidthRequest="400" />
+                                        <!-- Add other data bindings as needed -->
+                                        <Button Text="Remove" Clicked="RemoveCommandClicked"/>
+                                    </StackLayout>
+                                </DataTemplate>
+                            </CollectionView.ItemTemplate>
+                        </CollectionView>
+                    </StackLayout>
+                </ScrollView>
+
+
+
+            </VerticalStackLayout>
         </VerticalStackLayout>
     </ScrollView>
 
